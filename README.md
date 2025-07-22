@@ -24,13 +24,8 @@
 
 ## №2 --Выведите процентное изменение ежемесячной суммы бронирования билетов, окгругленной до сотых
 
-explain analyze
+<img width="649" height="88" alt="image" src="https://github.com/user-attachments/assets/b8ed2fb4-53f4-4725-a4f7-984e7be46af3" />
 
-select date_trunc('month',book_date) as "Дата",sum(total_amount) as " Сумма бронирования",
-      round(100 *((sum(total_amount)-lag(sum(total_amount)) over (order by date_trunc('month',book_date)))
-      /lag(sum(total_amount)) over (order by date_trunc('month',book_date))),2) as "Изменение в %"
-from bookings 
-group by date_trunc('month',book_date) 
 
 ## №3 -- Выведите названия самолетов без бизнес-класса. Используйте в решении функцию  array-agg
 
